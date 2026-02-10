@@ -1,1 +1,278 @@
-Hellooo
+Got you — you want a **clear Product Requirements Document (PRD)** for your **Trip Fuel Split Calculator website** based on the UI + features you described. I’ll make it structured so you can literally give this to a dev team or use it for your project submission.
+
+---
+
+# 📄 PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+## Product Name
+
+**Trip Fuel Split Calculator — Split Fuel Fairly**
+
+---
+
+## 1. 🎯 Product Overview
+
+A simple web-based calculator that helps students, friends, and families split vehicle fuel costs fairly during trips.
+Users enter trip details (distance, mileage, fuel price, number of people), choose optional rules (include owner, rounding), and get:
+
+* Total fuel cost
+* Amount each person pays
+
+---
+
+## 2. 👥 Target Users
+
+* College students going on trips
+* Friends traveling together
+* Families sharing car expenses
+* Car owners organizing group rides
+
+---
+
+## 3. 🎯 Goals & Objectives
+
+### Primary Goals
+
+* Fast and fair fuel cost splitting
+* Easy mobile-friendly UI
+* Zero login required
+
+### Success Criteria
+
+* Calculation completed in <10 seconds
+* Users understand results instantly
+* Works on phone + laptop
+
+---
+
+## 4. ⚙️ Functional Requirements
+
+### 4.1 Trip Input Form
+
+#### 1. Distance (KM)
+
+* Numeric input
+* Required field
+* Must be > 0
+
+#### 2. Mileage (KM/L)
+
+* Numeric input
+* Required
+* Must be > 0
+
+#### 3. Fuel Price
+
+Options:
+
+* Petrol (auto current price display)
+* Diesel (auto current price display)
+* Custom price per litre input
+
+Behavior:
+
+* Selecting Petrol/Diesel autofills price
+* Custom allows manual entry
+
+#### 4. People in Vehicle
+
+* Integer input
+* Minimum = 1
+
+#### 5. Include Owner
+
+Checkbox:
+
+* If checked → owner included in cost split
+* If unchecked → owner excluded
+
+Dropdown (Rounding Options):
+
+* Exact
+* Round to ₹1
+* Round to ₹5
+* Round to ₹10
+
+---
+
+### 4.2 Calculate Button
+
+Button Label:
+**CALCULATE SPLIT**
+
+On click:
+
+1. Validate inputs
+2. Compute fuel required
+3. Compute total fuel cost
+4. Split cost among people
+5. Apply rounding rule
+6. Display result
+
+---
+
+### 4.3 Calculation Logic
+
+#### Step 1: Fuel Required
+
+```
+Fuel Needed = Distance / Mileage
+```
+
+#### Step 2: Total Fuel Cost
+
+```
+Total Cost = Fuel Needed × Fuel Price
+```
+
+#### Step 3: Split Count
+
+```
+If Include Owner = true:
+    Split Count = People
+Else:
+    Split Count = People - 1
+```
+
+#### Step 4: Cost Per Person
+
+```
+Each Pays = Total Cost / Split Count
+```
+
+#### Step 5: Apply Rounding
+
+* Exact → no change
+* ₹1 → round(amount/1)*1
+* ₹5 → round(amount/5)*5
+* ₹10 → round(amount/10)*10
+
+---
+
+## 5. 🖥️ UI Requirements
+
+### Theme
+
+* Background: Off-white / Cream
+
+```
+rgb(244,239,234)
+```
+
+### Typography
+
+* Font: Inter / Mono style
+* Title large bold uppercase
+
+### Layout
+
+Two-column layout on desktop:
+
+* Left: Instructions
+* Right: Calculator Form
+
+Mobile:
+
+* Single column stacked layout
+
+### Components
+
+* Input boxes with border
+* Fuel selection tabs
+* Checkbox
+* Dropdown
+* Large blue Calculate button
+* Result summary card
+
+---
+
+## 6. 📊 Output Section
+
+Show after calculation:
+
+* Total Fuel Cost (₹)
+* Each Person Pays (₹)
+* Summary:
+
+  * Distance
+  * Mileage
+  * Fuel Price
+  * People Count
+
+---
+
+## 7. 📱 Responsive Requirements
+
+Mobile First Design:
+
+* Stack elements vertically
+* Button full width
+* Text readable at 16px+
+
+Desktop:
+
+* Flex layout
+* 45% content basis
+* Right aligned calculator
+
+---
+
+## 8. ⚠️ Validation Rules
+
+* Distance cannot be empty
+* Mileage cannot be zero
+* Fuel price must exist
+* People ≥ 1
+* Show inline error messages
+
+---
+
+## 9. 🚀 Future Enhancements (Optional)
+
+* Live fuel price API (Indian cities)
+* Share result to WhatsApp
+* Dark mode
+* Trip history
+* Multiple vehicles support
+* Toll & food cost addition
+* Split by percentage
+
+---
+
+## 10. 🧪 Edge Cases
+
+* Owner excluded with only 1 person → show warning
+* Zero mileage → block calculation
+* Decimal inputs allowed
+* Very long trips supported
+
+---
+
+## 11. 🔐 Non-Functional Requirements
+
+* Works offline after load
+* Loads < 2 seconds
+* No data stored
+* Lightweight JS only
+
+---
+
+## 12. 🧱 Tech Stack Recommendation
+
+* HTML + CSS (Tailwind-like utility classes)
+* Vanilla JavaScript
+* Optional:
+
+  * React (if interactive UI)
+  * Vite for build
+
+---
+
+## 13. 📦 Deliverables
+
+* index.html
+* style.css
+* script.js
+* README.md
+
+
